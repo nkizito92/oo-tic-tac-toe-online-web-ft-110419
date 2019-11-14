@@ -89,7 +89,7 @@ class TicTacToe
    def play 
      turn until over?
      if won? 
-       puts "You won player #{winner}!"
+       puts "Congratulations #{winner}!"
      else 
        puts "You want to play again player #{winner} Y for YES and N for NO!"
        input = gets.strip
