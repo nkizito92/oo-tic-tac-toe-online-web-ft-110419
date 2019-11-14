@@ -87,7 +87,6 @@ class TicTacToe
   end 
    
    def play 
-    # @board = Array.new(9, " ")
      
      turn until over?
      if won? 
