@@ -87,13 +87,6 @@ class TicTacToe
      if won? 
        puts "Congratulations #{winner}!"
      else 
-    #   puts "You want to play again player #{winner} Y for YES and N for NO!"
-    #   input = gets.strip
-    #     if input.downcase == "y" || input.downcase == "yes"
-    #       self 
-    #     else 
-    #       puts "Game Over!!"
-    #     end 
         puts "Cat's Game!"
      end
    end 
