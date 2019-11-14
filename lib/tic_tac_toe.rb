@@ -93,12 +93,12 @@ class TicTacToe
        puts "You won player #{winner}!"
      else 
        puts "You want to play again player #{winner} Y for YES and N for NO!"
+        if input.downcase == "y" || input.downcase == "yes"
+          self 
+        else 
+          puts "Game Over!!"
+        end 
      end
-    if input.downcase == "y" || input.downcase == "yes"
-      self 
-    else 
-      puts "Game Over!!"
-    end 
    end 
    
 end 
