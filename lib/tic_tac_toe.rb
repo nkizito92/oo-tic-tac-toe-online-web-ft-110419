@@ -45,9 +45,8 @@ class TicTacToe
   end 
   
   def current_player 
-    # return "X" if turn_count.even?  
-    # return "O" if turn_count.odd?
-    turn_count % 2 == 0 ? "X" : "O"
+    return "X" if turn_count.even?  
+    return "O" if turn_count.odd?
   end 
   
   def turn
@@ -72,11 +71,7 @@ class TicTacToe
   end 
    
   def over?
-     if won? 
-       true 
-     else 
-       draw?
-     end 
+     won? ? true : draw? 
   end 
   
   def winner 
@@ -88,19 +83,12 @@ class TicTacToe
   end 
    
    def play 
-     @board = Array.new(9, " ")
-     
      turn until over?
      if won? 
-       puts "You won player #{winner}!"
+       puts "Congratulations #{winner}!"
      else 
-       puts "You want to play again player #{winner} Y for YES and N for NO!"
+        puts "Cat's Game!"
      end
-    if gets.strip.downcase == "y" ||  gets.strip.downcase == "yes"
-      self 
-    else 
-      puts "Game Over!!"
-    end 
    end 
    
 end 
