@@ -98,7 +98,6 @@ class TicTacToe
       self 
     else 
       puts "Game Over!!"
-      return
     end 
    end 
    
