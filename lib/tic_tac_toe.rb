@@ -45,17 +45,62 @@ class TicTacToe
   end 
   
   def current_player 
-    return "X" if turn_count.even?  
-    return "O" if turn_count.odd?
+    # return "X" if turn_count.even?  
+    # return "O" if turn_count.odd?
+    turn_count % 2 == 0 ? "X" : "O"
   end 
   
   def turn
     user_input = gets.strip
-    check = false
-    while check == false
-      new_input = input_to_index(user_input)
-      valid_move?(new_input) ? move(new_input, current_player) && display_board && check = true :  user_input = gets.strip
-      # binding.pry
-    end
+    c_p = current_player
+    new_input = input_to_index(user_input)
+    valid_move?(new_input) ? move(new_input, c_p) && display_board : user_input = gets.strip
   end 
+  
+  def won? 
+    x = WIN_COMBINATIONS.find{|combe| @board[combe[0]] == "X" && @board[combe[1]] == "X" && @board[combe[2]] == "X" }
+    o = WIN_COMBINATIONS.find{|combe| @board[combe[0]] == "O" && @board[combe[1]] == "O" && @board[combe[2]] == "O" }
+    return x || o
+  end 
+  
+  def full?
+     true if !@board.any?{|input| input == "" || input == " "}
+  end 
+  
+  def draw?
+    !won? && full?
+  end 
+   
+  def over?
+     if won? 
+       true 
+     else 
+       draw?
+     end 
+  end 
+  
+  def winner 
+    if won? 
+      @board[won?[0]] == "X" ? "X" : "O"
+    else
+      nil
+    end 
+  end 
+   
+   def play 
+     @board = Array.new(9, " ")
+     
+     turn until over?
+     if won? 
+       puts "You won player #{winner}!"
+     else 
+       puts "You want to play again player #{winner} Y for YES and N for NO!"
+     end
+    if gets.strip.downcase == "y" ||  gets.strip.downcase == "yes"
+      self 
+    else 
+      puts "Game Over!!"
+    end 
+   end 
+   
 end 
