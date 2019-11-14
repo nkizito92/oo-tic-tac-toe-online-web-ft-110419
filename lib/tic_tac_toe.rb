@@ -88,11 +88,11 @@ class TicTacToe
    
    def play 
      turn until over?
-     input = gets.strip
      if won? 
        puts "You won player #{winner}!"
      else 
        puts "You want to play again player #{winner} Y for YES and N for NO!"
+       input = gets.strip
         if input.downcase == "y" || input.downcase == "yes"
           self 
         else 
