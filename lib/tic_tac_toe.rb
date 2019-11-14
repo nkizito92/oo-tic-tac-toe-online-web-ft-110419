@@ -87,8 +87,8 @@ class TicTacToe
   end 
    
    def play 
-     input = gets.strip
      turn until over?
+     input = gets.strip
      if won? 
        puts "You won player #{winner}!"
      else 
